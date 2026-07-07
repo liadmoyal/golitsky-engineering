@@ -64,6 +64,7 @@ export interface Project {
   title: string;
   category: string;
   description: string;
+  image?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -72,12 +73,14 @@ export const PROJECTS: Project[] = [
     category: "בקרת איכות",
     description:
       "גשר בטון דרוך בשיטת FT זיז מאוזן. הגשר הגבוה ביותר במזרח התיכון. זוכה פרס איגוד המהנדסים לבנייה ולתשתיות.",
+    image: "/images/projects/project1.png",
   },
   {
     title: "מחלף בן-ציון נתניהו",
     category: "פיקוח",
     description:
       "עבודות גישור — 3 גשרים, בשיטת מקטעים וקורות. סלילה, תשתיות, תאורה, ביצוע רמפות ושילוט.",
+    image: "/images/projects/project2.jpg",
   },
   {
     title: "הקו הירוק — רכבת קלה ראשל״צ",
@@ -107,16 +110,20 @@ export const PROJECTS: Project[] = [
 /* ─── Clients ─── */
 export interface Client {
   name: string;
-  shortName: string;
+  image: string;
 }
 
 export const CLIENTS: Client[] = [
-  { name: "נתיבי ישראל", shortName: "נתיבי ישראל" },
-  { name: "רכבת ישראל", shortName: "רכבת ישראל" },
-  { name: "חברת מוריה ירושלים", shortName: "מוריה" },
-  { name: 'נת"ע', shortName: 'נת"ע' },
-  { name: "נתיבי איילון", shortName: "נתיבי איילון" },
-  { name: "מכון התקנים הישראלי", shortName: "מכון התקנים" },
+  { name: "נתיבי ישראל", image: "/images/clients/netivei-israel.png" },
+  { name: "רכבת ישראל", image: "/images/clients/israel-railways.jpg" },
+  { name: "חברת מוריה ירושלים", image: "/images/clients/moriah.png" },
+  { name: "עיריית תל אביב", image: "/images/clients/tel-aviv.png" },
+  { name: "נתיבי איילון", image: "/images/clients/ayalon.png" },
+  { name: "מעלה אדומים", image: "/images/clients/maale-adumim.png" },
+  { name: "ברן גרופ", image: "/images/clients/baran-group.png" },
+  { name: "מועצה אזורית תמר", image: "/images/clients/tamar.png" },
+  { name: "מעבדות איזוטסט", image: "/images/clients/isotest.png" },
+  { name: "גיאופרום", image: "/images/clients/geoprom.gif" },
 ];
 
 /* ─── Stats ─── */

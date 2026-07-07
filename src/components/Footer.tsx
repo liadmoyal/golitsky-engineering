@@ -1,5 +1,6 @@
 import { CONTACT_INFO, NAV_LINKS } from "@/lib/constants";
 import { Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -9,14 +10,13 @@ export default function Footer() {
           {/* Company */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-10 w-10 rounded-lg bg-accent flex items-center justify-center text-white font-bold text-lg">
-                G
-              </div>
-              <div>
-                <p className="font-bold text-white leading-tight">
-                  גדליה אוליצקי
-                </p>
-                <p className="text-xs text-slate-light">הנדסה בע&quot;מ</p>
+              <div className="relative h-12 w-32 bg-white/5 rounded-lg p-2">
+                <Image 
+                  src="/images/logo.jpg" 
+                  alt="גדליה אוליצקי הנדסה" 
+                  fill 
+                  className="object-contain"
+                />
               </div>
             </div>
             <p className="text-slate-light text-sm leading-relaxed max-w-xs">

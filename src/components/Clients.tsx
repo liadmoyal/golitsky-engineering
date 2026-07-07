@@ -2,13 +2,13 @@
 
 import { useIntersection } from "@/hooks/useIntersection";
 import { CLIENTS } from "@/lib/constants";
-import { Building2 } from "lucide-react";
+import Image from "next/image";
 
 export default function Clients() {
   const { ref, isVisible } = useIntersection();
 
   return (
-    <section id="clients" className="py-20 md:py-24 bg-white">
+    <section id="clients" className="py-20 md:py-24 bg-white border-t border-border">
       <div
         ref={ref}
         className={`mx-auto max-w-7xl px-6 lg:px-8 transition-all duration-700 ${
@@ -17,7 +17,7 @@ export default function Clients() {
       >
         {/* Section Header */}
         <div className="text-center mb-14">
-          <p className="text-accent font-semibold text-sm mb-3 tracking-wide">
+          <p className="text-accent font-bold text-sm mb-3 tracking-wide">
             מאגרים ולקוחות
           </p>
           <h2 className="text-3xl md:text-4xl font-extrabold text-navy">
@@ -26,22 +26,24 @@ export default function Clients() {
         </div>
 
         {/* Logo Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {CLIENTS.map((client, i) => (
             <div
               key={client.name}
-              className="group relative flex flex-col items-center justify-center gap-3 py-8 px-4 rounded-2xl border border-border bg-surface transition-all duration-500 hover:border-accent/20 hover:bg-white hover:shadow-lg hover:shadow-accent/5 hover:-translate-y-1"
-              style={{ transitionDelay: `${i * 60}ms` }}
+              className="group relative flex flex-col items-center justify-center gap-4 py-8 px-4 rounded-xl border border-border bg-surface transition-all duration-300 hover:border-accent/30 hover:bg-white hover:shadow-xl hover:-translate-y-1"
+              style={{ transitionDelay: `${i * 50}ms` }}
             >
-              {/* Placeholder Icon — will be replaced with actual logos */}
-              <div className="flex items-center justify-center w-16 h-16 rounded-xl bg-slate-lighter/30 transition-all duration-500 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:bg-accent/5">
-                <Building2
-                  size={28}
-                  className="text-slate transition-colors duration-500 group-hover:text-accent"
+              {/* Logo */}
+              <div className="relative w-24 h-16 flex items-center justify-center transition-all duration-500 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100">
+                <Image
+                  src={client.image}
+                  alt={client.name}
+                  fill
+                  className="object-contain"
                 />
               </div>
-              <span className="text-sm font-medium text-slate text-center transition-colors duration-300 group-hover:text-navy">
-                {client.shortName}
+              <span className="text-sm font-bold text-slate text-center transition-colors duration-300 group-hover:text-navy">
+                {client.name}
               </span>
             </div>
           ))}

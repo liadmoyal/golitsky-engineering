@@ -3,6 +3,7 @@
 import { useIntersection } from "@/hooks/useIntersection";
 import { STATS, CERTIFICATIONS } from "@/lib/constants";
 import { Award, CheckCircle } from "lucide-react";
+import Image from "next/image";
 
 export default function About() {
   const { ref, isVisible } = useIntersection();
@@ -17,7 +18,7 @@ export default function About() {
       >
         {/* Section Header */}
         <div className="mb-16">
-          <p className="text-accent font-semibold text-sm mb-3 tracking-wide">
+          <p className="text-accent font-bold text-sm mb-3 tracking-wide">
             אודות החברה
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy leading-tight">
@@ -27,30 +28,10 @@ export default function About() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
-          {/* Left: Stats Grid */}
-          <div className="lg:col-span-2">
-            <div className="grid grid-cols-2 gap-4">
-              {STATS.map((stat, i) => (
-                <div
-                  key={stat.label}
-                  className="relative group rounded-2xl border border-border bg-surface p-6 text-center transition-all duration-500 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 hover:-translate-y-1"
-                  style={{ transitionDelay: `${i * 100}ms` }}
-                >
-                  <div className="text-3xl md:text-4xl font-extrabold text-navy mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-slate">{stat.label}</div>
-                  {/* Hover accent line */}
-                  <div className="absolute bottom-0 right-0 left-0 h-0.5 bg-gradient-to-l from-accent to-accent-light rounded-b-2xl scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-right" />
-                </div>
-              ))}
-            </div>
-          </div>
-
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Right: Description + Certifications */}
-          <div className="lg:col-span-3 space-y-8">
-            <div className="space-y-5 text-lg text-slate leading-relaxed">
+          <div className="space-y-8 order-2 lg:order-1">
+            <div className="space-y-5 text-lg text-slate-dark leading-relaxed">
               <p>
                 החברה הוקמה בשנת 2013 ומציעה פתרונות ושירותים הנדסיים בתחום
                 ניהול, ביצוע ואיכות פרויקטי תשתיות תחבורה, וסקירות גשרים ומבני
@@ -70,19 +51,34 @@ export default function About() {
               </p>
             </div>
 
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-6">
+              {STATS.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="text-center"
+                >
+                  <div className="text-3xl font-extrabold text-accent mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm font-medium text-slate">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
             {/* Certifications */}
             <div className="pt-6 border-t border-border">
               <div className="flex items-center gap-2 mb-4">
-                <Award className="text-accent" size={20} />
-                <h3 className="font-bold text-navy text-lg">
+                <Award className="text-navy" size={24} />
+                <h3 className="font-bold text-navy text-xl">
                   הסמכות ותעודות
                 </h3>
               </div>
               <ul className="grid sm:grid-cols-2 gap-3">
                 {CERTIFICATIONS.map((cert) => (
-                  <li key={cert} className="flex items-start gap-2.5 text-sm text-slate">
+                  <li key={cert} className="flex items-start gap-2.5 text-sm text-slate-dark font-medium">
                     <CheckCircle
-                      size={16}
+                      size={18}
                       className="text-accent mt-0.5 shrink-0"
                     />
                     <span>{cert}</span>
@@ -90,6 +86,18 @@ export default function About() {
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* Left: Founder Image */}
+          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl order-1 lg:order-2">
+            <Image
+              src="/images/about/gdalia.jpg"
+              alt="גדליה אוליצקי"
+              fill
+              className="object-cover"
+            />
+            {/* Subtle inner shadow overlay */}
+            <div className="absolute inset-0 ring-1 ring-inset ring-navy/10 rounded-2xl" />
           </div>
         </div>
       </div>
