@@ -1,0 +1,98 @@
+"use client";
+
+import { useIntersection } from "@/hooks/useIntersection";
+import { STATS, CERTIFICATIONS } from "@/lib/constants";
+import { Award, CheckCircle } from "lucide-react";
+
+export default function About() {
+  const { ref, isVisible } = useIntersection();
+
+  return (
+    <section id="about" className="relative py-24 md:py-32 bg-white">
+      <div
+        ref={ref}
+        className={`mx-auto max-w-7xl px-6 lg:px-8 transition-all duration-700 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}
+      >
+        {/* Section Header */}
+        <div className="mb-16">
+          <p className="text-accent font-semibold text-sm mb-3 tracking-wide">
+            אודות החברה
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy leading-tight">
+            מוניטין של מצוינות
+            <br />
+            <span className="text-slate">בהנדסה אזרחית</span>
+          </h2>
+        </div>
+
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
+          {/* Left: Stats Grid */}
+          <div className="lg:col-span-2">
+            <div className="grid grid-cols-2 gap-4">
+              {STATS.map((stat, i) => (
+                <div
+                  key={stat.label}
+                  className="relative group rounded-2xl border border-border bg-surface p-6 text-center transition-all duration-500 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 hover:-translate-y-1"
+                  style={{ transitionDelay: `${i * 100}ms` }}
+                >
+                  <div className="text-3xl md:text-4xl font-extrabold text-navy mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-slate">{stat.label}</div>
+                  {/* Hover accent line */}
+                  <div className="absolute bottom-0 right-0 left-0 h-0.5 bg-gradient-to-l from-accent to-accent-light rounded-b-2xl scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-right" />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: Description + Certifications */}
+          <div className="lg:col-span-3 space-y-8">
+            <div className="space-y-5 text-lg text-slate leading-relaxed">
+              <p>
+                החברה הוקמה בשנת 2013 ומציעה פתרונות ושירותים הנדסיים בתחום
+                ניהול, ביצוע ואיכות פרויקטי תשתיות תחבורה, וסקירות גשרים ומבני
+                דרך.
+              </p>
+              <p>
+                החברה מוכרת בזכות המוניטין המצוין שצבר המייסד והמהנדס הראשי
+                גדליה אוליצקי לאורך{" "}
+                <span className="font-bold text-navy">30 שנות עבודתו</span>{" "}
+                במיזמים הבולטים בארץ — עבור רכבת ישראל, נתיבי-ישראל, חברת מוריה
+                ועוד.
+              </p>
+              <p>
+                החברה משפרת באופן מתמיד את רמת האיכות והשירות ומיישמת את נוהל
+                הבטחת האיכות במסגרת התקן{" "}
+                <span className="font-bold text-navy">ISO 9001:2015</span>.
+              </p>
+            </div>
+
+            {/* Certifications */}
+            <div className="pt-6 border-t border-border">
+              <div className="flex items-center gap-2 mb-4">
+                <Award className="text-accent" size={20} />
+                <h3 className="font-bold text-navy text-lg">
+                  הסמכות ותעודות
+                </h3>
+              </div>
+              <ul className="grid sm:grid-cols-2 gap-3">
+                {CERTIFICATIONS.map((cert) => (
+                  <li key={cert} className="flex items-start gap-2.5 text-sm text-slate">
+                    <CheckCircle
+                      size={16}
+                      className="text-accent mt-0.5 shrink-0"
+                    />
+                    <span>{cert}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
