@@ -34,17 +34,16 @@ export default function Projects() {
           {PROJECTS.map((project, i) => (
             <div
               key={project.title}
-              className="group relative flex flex-col rounded-xl border border-border bg-white overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-accent/30 hover:-translate-y-1"
-              style={{ transitionDelay: `${i * 80}ms` }}
+              className="group relative flex flex-col rounded-none border border-border bg-surface-alt overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-accent/50 hover:-translate-y-1"
             >
               {/* Image Container */}
-              <div className="relative aspect-video w-full bg-slate-lighter overflow-hidden">
+              <div className="relative aspect-video w-full bg-white overflow-hidden flex items-center justify-center border-b border-border p-6">
                 {project.image ? (
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain p-8 transition-transform duration-500 group-hover:scale-105"
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center text-slate-light">
@@ -52,7 +51,7 @@ export default function Projects() {
                   </div>
                 )}
                 {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
               {/* Content */}
@@ -64,7 +63,7 @@ export default function Projects() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-bold text-navy mb-3 leading-snug group-hover:text-accent transition-colors duration-300">
+                <h3 className="text-lg font-bold text-navy mb-3 leading-snug group-hover:text-accent transition-colors duration-500">
                   {project.title}
                 </h3>
 
@@ -74,7 +73,7 @@ export default function Projects() {
                 </p>
 
                 {/* Hover arrow */}
-                <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 z-10">
+                <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:-translate-x-1 group-hover:-translate-y-1 z-10">
                   <ArrowUpLeft size={20} className="text-white drop-shadow-md" />
                 </div>
               </div>

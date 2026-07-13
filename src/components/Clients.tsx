@@ -27,11 +27,10 @@ export default function Clients() {
 
         {/* Logo Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-          {CLIENTS.map((client, i) => (
+          {CLIENTS.map((client) => (
             <div
               key={client.name}
-              className="group relative flex flex-col items-center justify-center gap-4 py-8 px-4 rounded-xl border border-border bg-surface transition-all duration-300 hover:border-accent/30 hover:bg-white hover:shadow-xl hover:-translate-y-1"
-              style={{ transitionDelay: `${i * 50}ms` }}
+              className="group relative flex flex-col items-center justify-center gap-4 py-8 px-4 rounded-xl border border-border bg-surface transition-all duration-500 hover:border-accent/30 hover:bg-white hover:shadow-xl hover:-translate-y-1"
             >
               {/* Logo */}
               <div className="relative w-24 h-16 flex items-center justify-center transition-all duration-500 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100">

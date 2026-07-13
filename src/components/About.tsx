@@ -51,17 +51,17 @@ export default function About() {
               </p>
             </div>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-6">
+            {/* Stats Grid - Industrial Table Style */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border border border-border my-6">
               {STATS.map((stat) => (
                 <div
                   key={stat.label}
-                  className="text-center"
+                  className="bg-white p-4 text-center flex flex-col justify-center"
                 >
-                  <div className="text-3xl font-extrabold text-accent mb-1">
+                  <div className="text-3xl font-extrabold text-navy mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-sm font-medium text-slate">{stat.label}</div>
+                  <div className="text-xs font-bold text-accent uppercase tracking-wide">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -89,15 +89,15 @@ export default function About() {
           </div>
 
           {/* Left: Founder Image */}
-          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl order-1 lg:order-2">
+          <div className="relative aspect-[4/5] lg:aspect-auto lg:h-full border-l-4 border-accent bg-surface-alt order-1 lg:order-2 shadow-2xl">
             <Image
               src="/images/about/gdalia.jpg"
               alt="גדליה אוליצקי"
               fill
-              className="object-cover"
+              className="object-cover object-left"
             />
-            {/* Subtle inner shadow overlay */}
-            <div className="absolute inset-0 ring-1 ring-inset ring-navy/10 rounded-2xl" />
+            {/* Industrial inner shadow overlay */}
+            <div className="absolute inset-0 ring-1 ring-inset ring-navy/20" />
           </div>
         </div>
       </div>

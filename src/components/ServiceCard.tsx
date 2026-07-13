@@ -9,27 +9,26 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
   const Icon = service.icon;
 
   return (
-    <div
-      className="group relative rounded-xl border border-border bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-accent/20"
-      style={{ transitionDelay: `${index * 80}ms` }}
-    >
+    <div className="group relative flex flex-col md:flex-row items-start md:items-center gap-6 p-8 border-b border-border bg-white transition-all duration-300 hover:bg-surface-alt">
+      {/* Index Number */}
+      <div className="text-4xl font-extrabold text-slate-lighter group-hover:text-accent transition-colors w-16">
+        {(index + 1).toString().padStart(2, '0')}
+      </div>
+      
       {/* Icon */}
-      <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-lg bg-surface-alt text-navy transition-all duration-300 group-hover:bg-accent group-hover:text-white group-hover:shadow-md">
-        <Icon className="w-6 h-6" />
+      <div className="inline-flex items-center justify-center w-16 h-16 bg-surface-alt text-navy transition-all duration-300 group-hover:bg-navy group-hover:text-white shrink-0">
+        <Icon className="w-8 h-8" />
       </div>
 
-      {/* Title */}
-      <h3 className="text-xl font-bold text-navy mb-3 transition-colors duration-300 group-hover:text-accent">
-        {service.title}
-      </h3>
-
-      {/* Description */}
-      <p className="text-slate-dark leading-relaxed text-[0.95rem]">
-        {service.description}
-      </p>
-
-      {/* Subtle top accent line */}
-      <div className="absolute top-0 right-0 left-0 h-1 bg-accent rounded-t-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      {/* Content */}
+      <div className="flex-grow">
+        <h3 className="text-2xl font-bold text-navy mb-2 transition-colors duration-300">
+          {service.title}
+        </h3>
+        <p className="text-slate-dark leading-relaxed text-lg max-w-3xl">
+          {service.description}
+        </p>
+      </div>
     </div>
   );
 }

@@ -146,9 +146,13 @@ export const CERTIFICATIONS = [
 
 /* ─── Contact Info ─── */
 export const CONTACT_INFO = {
-  address: "הסורג 2, ירושלים 9414502",
+  address: "עליאש 8, ירושלים",
+  addressMapLink: "https://maps.app.goo.gl/bE66E7HUGARTkrEc6",
+  addressWazeLink: "https://waze.com/ul/hsv9hc3g20",
   email: "office@golitsky.com",
   phone: "02-6515114",
   mobile: "050-8221662",
+  whatsapp: "0506668045",
   fax: "02-6542741",
+  linkedin: "https://www.linkedin.com/company/gdalia-olitsky",
 } as const;

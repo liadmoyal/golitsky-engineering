@@ -2,19 +2,19 @@
 
 @theme inline {
   /* === Colors === */
-  --color-navy: #005B9A; /* Brand Dark Blue */
-  --color-navy-light: #0A6CB0;
-  --color-navy-mid: #0562A3;
-  --color-slate-dark: #1E293B;
+  --color-navy: #0F172A; /* Industrial Slate 900 */
+  --color-navy-light: #334155; /* Slate 700 */
+  --color-navy-mid: #1E293B; /* Slate 800 */
+  --color-slate-dark: #334155;
   --color-slate: #475569;
   --color-slate-light: #94A3B8;
   --color-slate-lighter: #E2E8F0;
-  --color-accent: #1495D3; /* Brand Light Blue */
-  --color-accent-dark: #0077C0;
-  --color-accent-light: #44B5ED;
-  --color-surface: #FFFFFF;
-  --color-surface-alt: #F8FAFC;
-  --color-border: #E2E8F0;
+  --color-accent: #F97316; /* Safety Orange 500 */
+  --color-accent-dark: #EA580C; /* Safety Orange 600 */
+  --color-accent-light: #FB923C; /* Safety Orange 400 */
+  --color-surface: #FAFAFA; /* Off-white concrete tint */
+  --color-surface-alt: #F1F5F9; /* Slate 100 */
+  --color-border: #E2E8F0; /* Slate 200 */
   --color-white: #FFFFFF;
   --color-success: #10B981;
   --color-error: #EF4444;

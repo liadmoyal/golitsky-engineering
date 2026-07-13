@@ -31,8 +31,8 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {/* Heavy Editorial List */}
+        <div className="flex flex-col border-t-2 border-navy mt-10">
           {SERVICES.map((service, i) => (
             <ServiceCard key={service.title} service={service} index={i} />
           ))}
