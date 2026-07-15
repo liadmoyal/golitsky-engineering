@@ -31,19 +31,19 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PROJECTS.map((project, i) => (
+          {PROJECTS.slice(0, 3).map((project, i) => (
             <div
               key={project.title}
               className="group relative flex flex-col rounded-none border border-border bg-surface-alt overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-accent/50 hover:-translate-y-1"
             >
               {/* Image Container */}
-              <div className="relative aspect-video w-full bg-white overflow-hidden flex items-center justify-center border-b border-border p-6">
+              <div className="relative aspect-video w-full bg-surface-alt overflow-hidden flex items-center justify-center border-b border-border">
                 {project.image ? (
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-contain p-8 transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center text-slate-light">
@@ -52,6 +52,13 @@ export default function Projects() {
                 )}
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Credit */}
+                {project.credit && (
+                  <div className="absolute bottom-3 left-3 bg-black/50 backdrop-blur-md text-white/90 text-[10px] px-2 py-0.5 rounded z-10 pointer-events-none tracking-wide">
+                    {project.credit}
+                  </div>
+                )}
               </div>
 
               {/* Content */}
@@ -79,6 +86,17 @@ export default function Projects() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* View All Projects Button */}
+        <div className="mt-16 flex justify-center">
+          <a
+            href="/projects"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-navy hover:bg-accent text-white font-bold rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+          >
+            לכל הפרויקטים שלנו
+            <ArrowUpLeft size={20} />
+          </a>
         </div>
       </div>
     </section>

@@ -65,6 +65,7 @@ export interface Project {
   category: string;
   description: string;
   image?: string;
+  credit?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -73,26 +74,29 @@ export const PROJECTS: Project[] = [
     category: "בקרת איכות",
     description:
       "גשר בטון דרוך בשיטת FT זיז מאוזן. הגשר הגבוה ביותר במזרח התיכון. זוכה פרס איגוד המהנדסים לבנייה ולתשתיות.",
-    image: "/images/projects/project1.png",
+    image: "/assest/bridge-10-new.jpg",
+    credit: "קרדיט: צילום: Shutterstock"
   },
   {
     title: "מחלף בן-ציון נתניהו",
     category: "פיקוח",
     description:
       "עבודות גישור — 3 גשרים, בשיטת מקטעים וקורות. סלילה, תשתיות, תאורה, ביצוע רמפות ושילוט.",
-    image: "/images/projects/project2.jpg",
-  },
-  {
-    title: "הקו הירוק — רכבת קלה ראשל״צ",
-    category: "הבטחת איכות",
-    description:
-      "ניהול הבטחת איכות עבודות תשתית, סלילה, ניקוז, נוף, שיקום סביבתי ובטיחות בתנועה.",
+    image: "/assest/mechlaf.jpg",
+    credit: "קרדיט: יהל מהנדסים"
   },
   {
     title: "שיקוע בגין — קפלן, תל אביב",
     category: "פיקוח",
     description:
       "שיקום והרחבת גשר כולל הוספת קורות באחד המחלפים הסואנים ביותר בארץ.",
+    image: "/assest/begin-kaplan.jpg",
+  },
+  {
+    title: "הקו הירוק — רכבת קלה ראשל״צ",
+    category: "הבטחת איכות",
+    description:
+      "ניהול הבטחת איכות עבודות תשתית, סלילה, ניקוז, נוף, שיקום סביבתי ובטיחות בתנועה.",
   },
   {
     title: "מנהרות הגבעה הצרפתית",
@@ -120,10 +124,10 @@ export const CLIENTS: Client[] = [
   { name: "עיריית תל אביב", image: "/images/clients/tel-aviv.png" },
   { name: "נתיבי איילון", image: "/images/clients/ayalon.png" },
   { name: "מעלה אדומים", image: "/images/clients/maale-adumim.png" },
-  { name: "ברן גרופ", image: "/images/clients/baran-group.png" },
+  { name: "ברן גרופ", image: "/assest/תמונה13.jpg" },
   { name: "מועצה אזורית תמר", image: "/images/clients/tamar.png" },
   { name: "מעבדות איזוטסט", image: "/images/clients/isotest.png" },
-  { name: "גיאופרום", image: "/images/clients/geoprom.gif" },
+  { name: "גיאוכום", image: "/assest/תמונה1.png" },
 ];
 
 /* ─── Stats ─── */

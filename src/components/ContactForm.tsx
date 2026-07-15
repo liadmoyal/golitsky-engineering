@@ -65,10 +65,16 @@ export default function ContactForm() {
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) throw new Error("Submit failed");
+      const result = await res.json();
+
+      if (!res.ok || !result.success) {
+        throw new Error(result.error || "Submit failed");
+      }
+      
       setStatus("success");
       form.reset();
-    } catch {
+    } catch (err) {
+      console.error(err);
       setStatus("error");
     }
   };
@@ -168,6 +174,16 @@ export default function ContactForm() {
               onSubmit={handleSubmit}
               className="rounded-2xl border border-border bg-white p-8 md:p-10 space-y-6"
             >
+              {/* Honeypot field for spam prevention */}
+              <div className="hidden" aria-hidden="true">
+                <input
+                  type="text"
+                  name="_honey"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label

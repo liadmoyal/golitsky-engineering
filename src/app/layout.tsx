@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const heebo = Heebo({
   variable: "--font-heebo-var",
@@ -39,7 +42,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he" dir="rtl" className={`${heebo.variable} antialiased`}>
-      <body className="min-h-dvh flex flex-col">{children}</body>
+      <body className="min-h-dvh flex flex-col font-sans">
+        <Header />
+        <main className="flex-grow pt-24">
+          {children}
+        </main>
+        <Footer />
+      </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX"} />
     </html>
   );
 }
